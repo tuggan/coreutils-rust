@@ -1,0 +1,29 @@
+name: cat
+
+settings:
+  - ArgRequiredElseHelp
+
+args:
+  - numberNonBlank:
+      short: b
+      long: number-nonblank
+      help: number nonempty outpit lines, overrides -n
+  - showEnds:
+      short: E
+      long: show-ends
+      help: display $ at end of each line (Not yet implemented)
+  - numberLines:
+      short: n
+      long: number
+      help: number all output lines
+  - squeezeBlanks:
+      short: s
+      long: squeeze-blanks
+      help: supress repeated umpty output lines
+  - INPUT:
+      index: 1
+      required: true
+      multiple: true
+      takes_value: true
+      default_value: "-"
+      help: Sets the input file(s) to use, '-' for stdin
