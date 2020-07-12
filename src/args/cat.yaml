@@ -13,6 +13,8 @@
 # limitations under the License.
 
 name: Rust Cat
+version: 0.1.0
+about: concatinate FILE(s) to standard output.
 
 settings:
   - ArgRequiredElseHelp

@@ -20,9 +20,6 @@ use std::path::Path;
 extern crate clap;
 use clap::{App, load_yaml};
 
-#[allow(dead_code)]
-mod lib;
-
 #[derive(Debug)]
 struct CopyOptions {
     nnempty: bool, // Number non empty lines
