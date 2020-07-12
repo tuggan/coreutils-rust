@@ -105,4 +105,4 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | wc                                                  | Text utilities  | Prints the number of bytes, words, and lines in files                                       | Not started |
 | who                                                 | Shell utilities | Prints a list of all users currently logged in                                              | Not started |
 | whoami                                              | Shell utilities | Prints the effective userid                                                                 | Not started |
-| yes                                                 | Shell utilities | Prints a string repeatedly                                                                  | Not started |
+| yes                                                 | Shell utilities | Prints a string repeatedly                                                                  | Complete    |
