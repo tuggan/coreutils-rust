@@ -35,11 +35,6 @@ fn main() -> io::Result<()> {
     const VERSION: &'static str = env!("CARGO_PKG_VERSION");
     const AUTHORS: &'static str = env!("CARGO_PKG_AUTHORS");
     const ABOUT: &'static str = env!("CARGO_PKG_DESCRIPTION");
-    // let matches = App::new("Rust Cat")
-    //     .version(VERSION)
-    //     .author(AUTHORS)
-    //     .about(ABOUT)
-    //     .get_matches();
 
     let yml = load_yaml!("args/cat.yaml");
     let matches = App::from_yaml(yml)
