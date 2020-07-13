@@ -91,7 +91,7 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | timeout                                             | Shell utilities | Run a command with a time limit                                                             | Not started |
 | touch                                               | File utilities  | Changes file timestamps                                                                     | Not started |
 | tr                                                  | Text utilities  | Translates or deletes characters                                                            | Not started |
-| true                                                | Shell utilities | Does nothing, but exits successfully                                                        | Not started |
+| true                                                | Shell utilities | Does nothing, but exits successfully                                                        | Completed   |
 | truncate                                            | File utilities  | Shrink or extend the size of a file to the specified size                                   | Not started |
 | tsort                                               | Text utilities  | Performs a topological sort                                                                 | Not started |
 | tty                                                 | Shell utilities | Prints terminal name                                                                        | Not started |

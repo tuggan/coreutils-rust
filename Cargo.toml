@@ -21,6 +21,10 @@ name = "cat"
 path = "src/cat.rs"
 
 [[bin]]
+name = "true"
+path = "src/true.rs"
+
+[[bin]]
 name = "yes"
 path = "src/yes.rs"
 
