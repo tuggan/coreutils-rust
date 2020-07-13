@@ -15,6 +15,3 @@
 name: Rust whoami
 version: 1.0.0
 about: Print the user name associated with the current effective user ID.
-
-settings:
-  - ArgRequiredElseHelp

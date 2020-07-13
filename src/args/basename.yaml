@@ -36,7 +36,7 @@ args:
       help: end each output line with NUL, not newline
   - NAME:
       index: 1
-      required: false
+      required: true
       multiple: true
       takes_value: true
       help: Name(s) to get basename of. Only uses the first entry unless -a or -s is specified.
