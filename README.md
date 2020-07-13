@@ -9,7 +9,7 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | b2sum                                               | Text utilities  | Computes and checks BLAKE2b message digest                                                  | Not started |
 | base32                                              | Text utilities  | Encodes or decodes Base32, and prints result to standard output                             | Not started |
 | base64                                              | Text utilities  | Encodes or decodes Base64, and prints result to standard output                             | Not started |
-| basename                                            | Shell utilities | Removes the path prefix from a given pathname                                               | Not started |
+| basename                                            | Shell utilities | Removes the path prefix from a given pathname                                               | Complete    |
 | cat                                                 | Text utilities  | Concatenates and prints files on the standard output                                        | Partial     |
 | chcon                                               | File utilities  | Changes file security context (SELinux)                                                     | Not started |
 | chgrp                                               | File utilities  | Changes file group ownership                                                                | Not started |
