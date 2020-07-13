@@ -14,18 +14,18 @@
     limitations under the License.
 */
 use std::fs::File;
-use std::io::{self, BufWriter, BufReader, BufRead, Write, Read};
+use std::io::{self, BufRead, BufReader, BufWriter, Read, Write};
 use std::path::Path;
 
 extern crate clap;
-use clap::{App, load_yaml};
+use clap::{load_yaml, App};
 
 #[derive(Debug)]
 struct CopyOptions {
     nnempty: bool, // Number non empty lines
-    sends: bool, // Add $ at end of each line
-    nline: bool, // Number lines
-    sblank: bool, // Squeeze blank lines
+    sends: bool,   // Add $ at end of each line
+    nline: bool,   // Number lines
+    sblank: bool,  // Squeeze blank lines
 }
 
 fn main() -> io::Result<()> {
@@ -39,7 +39,6 @@ fn main() -> io::Result<()> {
         .author(AUTHORS)
         .about(ABOUT)
         .get_matches();
-
 
     let options = CopyOptions {
         nnempty: matches.is_present("numberNonBlank"),
@@ -61,7 +60,7 @@ fn main() -> io::Result<()> {
             Err(why) => {
                 eprintln!("Failed to open file: {}", why);
                 continue;
-            },
+            }
             Ok(reader) => reader,
         };
         if !(options.nnempty || options.sends || options.nline || options.sblank) {
@@ -73,7 +72,6 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 
-
 // Get a reader for file or stdin
 fn get_file_reader(path: &str) -> Result<Box<dyn Read>, io::Error> {
     let reader: Box<dyn Read> = if path == "-" {
@@ -81,16 +79,13 @@ fn get_file_reader(path: &str) -> Result<Box<dyn Read>, io::Error> {
     } else {
         let path = Path::new(path);
         let fd = match File::open(&path) {
-            Err(why) => {
-                return Err(why)
-            },
+            Err(why) => return Err(why),
             Ok(fd) => fd,
         };
         Box::new(fd)
     };
     return Ok(reader);
 }
-
 
 // Copy reader directly to stdout
 fn copy_to_stdout(reader: &mut Box<dyn Read>) {
@@ -105,7 +100,6 @@ fn copy_to_stdout(reader: &mut Box<dyn Read>) {
         };
     };
 }
-
 
 // Copy reader to stdout with special options
 fn special_reader_writer(reader: &mut Box<dyn Read>, options: &CopyOptions) {
@@ -124,7 +118,9 @@ fn special_reader_writer(reader: &mut Box<dyn Read>, options: &CopyOptions) {
         } else {
             last_line_blank = false;
         };
-        if ((options.nline && !options.nnempty) || (options.nnempty && buf.len() > 1)) && buf.last().unwrap() == &b'\n' {
+        if ((options.nline && !options.nnempty) || (options.nnempty && buf.len() > 1))
+            && buf.last().unwrap() == &b'\n'
+        {
             line += 1;
             print!("{:6}  ", line);
         };

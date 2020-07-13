@@ -17,10 +17,10 @@ use std::fs;
 use std::io::Error;
 use std::path::Path;
 
-#[cfg(target_os="linux")]
+#[cfg(target_os = "linux")]
 use std::os::linux::fs::MetadataExt;
 
-#[cfg(target_os="macos")]
+#[cfg(target_os = "macos")]
 use std::os::macos::fs::MetadataExt;
 
 #[allow(dead_code)]

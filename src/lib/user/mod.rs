@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-
 #[cfg(target_family = "unix")]
 pub mod unix;
 #[cfg(target_family = "unix")]
@@ -22,12 +21,9 @@ pub use unix as native;
 
 pub mod error;
 
-
-
 // fn string_from_os(string: OsString) -> String {
 //     match string.into_string() {
 //         Ok(string) => string,
 //         Err(string) => string.to_string_lossy().to_string(),
 //     }
 // }
-

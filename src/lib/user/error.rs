@@ -26,12 +26,19 @@ pub struct UserError {
 
 impl fmt::Display for UserError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "UserError {{ code: {}, message: {} }}", self.code, self.message)
+        write!(
+            f,
+            "UserError {{ code: {}, message: {} }}",
+            self.code, self.message
+        )
     }
 }
 
 impl UserError {
     pub fn new(code: usize, message: &str) -> UserError {
-        UserError{ code: code, message: String::from(message) }
+        UserError {
+            code: code,
+            message: String::from(message),
+        }
     }
 }

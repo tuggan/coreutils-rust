@@ -17,15 +17,13 @@
 use std::io::{self, Write};
 
 extern crate clap;
-use clap::{App, load_yaml};
+use clap::{load_yaml, App};
 
 fn main() {
     const AUTHORS: &'static str = env!("CARGO_PKG_AUTHORS");
 
     let yml = load_yaml!("args/yes.yaml");
-    let matches = App::from_yaml(yml)
-        .author(AUTHORS)
-        .get_matches();
+    let matches = App::from_yaml(yml).author(AUTHORS).get_matches();
 
     let mut strings: Vec<_> = matches.values_of("STRING").unwrap().collect();
     strings.push("\n");

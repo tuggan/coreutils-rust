@@ -15,27 +15,23 @@
 */
 
 extern crate clap;
-use clap::{App, load_yaml};
+use clap::{load_yaml, App};
 
 mod lib;
-use self::lib::user as user;
+use self::lib::user;
 
 fn main() {
     const AUTHORS: &'static str = env!("CARGO_PKG_AUTHORS");
 
     let yml = load_yaml!("args/whoami.yaml");
-    let _matches = App::from_yaml(yml)
-        .author(AUTHORS)
-        .get_matches();
-
+    let _matches = App::from_yaml(yml).author(AUTHORS).get_matches();
 
     match user::native::get_username() {
         Err(e) => {
             eprintln!("error getting username: {}", e);
-        },
+        }
         Ok(s) => {
             println!("{}", s);
         }
     }
-
 }

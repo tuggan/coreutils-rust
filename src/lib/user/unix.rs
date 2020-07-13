@@ -14,9 +14,9 @@
     limitations under the License.
 */
 
+use std::ffi::CStr;
 use std::mem;
 use std::ptr;
-use std::ffi::CStr;
 
 extern crate libc;
 
@@ -28,19 +28,24 @@ pub fn get_username() -> UserResult<String> {
             n if n == -1 => 16384 as usize,
             n => n as usize,
         };
-        
+
         let mut result = ptr::null_mut();
         let mut buffer = Vec::with_capacity(bufsize);
         let mut passwd: libc::passwd = mem::zeroed();
-    
-        match libc::getpwuid_r(libc::geteuid(), &mut passwd, buffer.as_mut_ptr(), buffer.capacity() as libc::size_t, &mut result) {
+
+        match libc::getpwuid_r(
+            libc::geteuid(),
+            &mut passwd,
+            buffer.as_mut_ptr(),
+            buffer.capacity() as libc::size_t,
+            &mut result,
+        ) {
             0 if !result.is_null() => {
                 let ptr = passwd.pw_name as *const _;
                 let username = CStr::from_ptr(ptr).to_str().unwrap().to_owned();
-                return Ok(username)
-            },
+                return Ok(username);
+            }
             _ => return Err(UserError::new(1, "unable to get user passwd struct")),
         }
     }
 }
-

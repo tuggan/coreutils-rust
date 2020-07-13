@@ -14,19 +14,17 @@
     limitations under the License.
 */
 
-use std::path::Path;
 use std::ffi::OsStr;
+use std::path::Path;
 
 extern crate clap;
-use clap::{App, load_yaml};
+use clap::{load_yaml, App};
 
 fn main() {
     const AUTHORS: &'static str = env!("CARGO_PKG_AUTHORS");
 
     let yml = load_yaml!("args/basename.yaml");
-    let matches = App::from_yaml(yml)
-        .author(AUTHORS)
-        .get_matches();
+    let matches = App::from_yaml(yml).author(AUTHORS).get_matches();
 
     // Process all if either -a or -s is set
     let multiple = matches.is_present("multiple") || matches.is_present("suffix");
@@ -54,7 +52,7 @@ fn main() {
                     OsStr::new("")
                 };
                 s
-            },
+            }
             Some(s) => s,
         };
 
@@ -66,7 +64,7 @@ fn main() {
 
         // Remove suffix if detected
         if suffix.len() > 0 && basestr.ends_with(suffix) {
-            basestr = &basestr[..basestr.len()-suffix.len()]
+            basestr = &basestr[..basestr.len() - suffix.len()]
         }
 
         // Print basename
