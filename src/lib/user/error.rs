@@ -14,5 +14,24 @@
     limitations under the License.
 */
 
-pub mod file;
-pub mod user;
+use std::fmt;
+
+pub type UserResult<T> = std::result::Result<T, UserError>;
+
+#[derive(Debug, Clone)]
+pub struct UserError {
+    pub code: usize,
+    pub message: String,
+}
+
+impl fmt::Display for UserError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "UserError {{ code: {}, message: {} }}", self.code, self.message)
+    }
+}
+
+impl UserError {
+    pub fn new(code: usize, message: &str) -> UserError {
+        UserError{ code: code, message: String::from(message) }
+    }
+}

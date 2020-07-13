@@ -20,6 +20,11 @@ path = "src/cat.rs"
 name = "yes"
 path = "src/yes.rs"
 
+[[bin]]
+name = "whoami"
+path = "src/whoami.rs"
+
 [dependencies]
 clap = { version = "*", features = ["yaml"] }
+libc = "*"
 

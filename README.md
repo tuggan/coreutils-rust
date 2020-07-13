@@ -104,5 +104,5 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | vdir                                                | File utilities  | Is exactly like "ls -l -b". (Files are by default listed in long format.)                   | Not started |
 | wc                                                  | Text utilities  | Prints the number of bytes, words, and lines in files                                       | Not started |
 | who                                                 | Shell utilities | Prints a list of all users currently logged in                                              | Not started |
-| whoami                                              | Shell utilities | Prints the effective userid                                                                 | Not started |
+| whoami                                              | Shell utilities | Prints the effective userid                                                                 | Complete    |
 | yes                                                 | Shell utilities | Prints a string repeatedly                                                                  | Complete    |
