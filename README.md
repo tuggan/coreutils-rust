@@ -76,7 +76,7 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | sha1sum, sha224sum, sha256sum, sha384sum, sha512sum | Text utilities  | Computes and checks SHA-1/SHA-2 message digests                                             | Not started |
 | shred                                               | File utilities  | Overwrites a file to hide its contents, and optionally deletes it                           | Not started |
 | shuf                                                | Text utilities  | generate random permutations                                                                | Not started |
-| sleep                                               | Shell utilities | Delays for a specified amount of time                                                       | Not started |
+| sleep                                               | Shell utilities | Delays for a specified amount of time                                                       | Completed   |
 | sort                                                | Text utilities  | sort lines of text files                                                                    | Not started |
 | split                                               | Text utilities  | Splits a file into pieces                                                                   | Not started |
 | stat                                                | Shell utilities | Returns data about an inode                                                                 | Not started |

@@ -1,6 +1,6 @@
 [package]
 name = "coreutils-rust"
-version = "0.1.1"
+version = "0.1.6"
 authors = ["Dennis Vesterlund <dennisvesterlund@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -21,6 +21,10 @@ name = "cat"
 path = "src/cat.rs"
 
 [[bin]]
+name = "sleep"
+path = "src/sleep.rs"
+
+[[bin]]
 name = "true"
 path = "src/true.rs"
 
@@ -33,6 +37,7 @@ name = "whoami"
 path = "src/whoami.rs"
 
 [dependencies]
-clap = { version = "*", features = ["yaml"] }
-libc = "*"
-
+clap = { version = "2", features = ["yaml"] }
+libc = "0.2"
+regex = "1"
+signal-hook = "0.1"
