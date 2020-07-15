@@ -14,9 +14,29 @@
     limitations under the License.
 */
 
-#[cfg(target_family = "unix")]
-pub mod unix;
-#[cfg(target_family = "unix")]
-pub use unix as native;
+use std::{env, error};
 
-pub mod error;
+extern crate clap;
+use clap::{load_yaml, App};
+
+mod lib;
+
+fn main() -> Result<(), Box<dyn error::Error>> {
+    const AUTHORS: &'static str = env!("CARGO_PKG_AUTHORS");
+
+    let yml = load_yaml!("args/pwd.yaml");
+    let matches = App::from_yaml(yml).author(AUTHORS).get_matches();
+
+    let p = matches.is_present("physical");
+
+    let mut path = String::new();
+    if let Ok(s) = env::var("PWD") {
+        path = s;
+    };
+    if p || path.is_empty() {
+        path = lib::string_from_os(env::current_dir()?.into_os_string());
+    };
+    println!("{}", path);
+
+    Ok(())
+}

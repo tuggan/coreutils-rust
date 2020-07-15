@@ -1,6 +1,6 @@
 [package]
 name = "coreutils-rust"
-version = "0.1.6"
+version = "0.7.1"
 authors = ["Dennis Vesterlund <dennisvesterlund@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -19,6 +19,10 @@ path = "src/basename.rs"
 [[bin]]
 name = "cat"
 path = "src/cat.rs"
+
+[[bin]]
+name = "pwd"
+path = "src/pwd.rs"
 
 [[bin]]
 name = "sleep"

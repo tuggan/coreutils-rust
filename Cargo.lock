@@ -59,7 +59,7 @@ dependencies = [
 
 [[package]]
 name = "coreutils-rust"
-version = "0.1.6"
+version = "0.7.1"
 dependencies = [
  "clap",
  "libc",

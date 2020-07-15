@@ -14,6 +14,16 @@
     limitations under the License.
 */
 
+use std::ffi::OsString;
+
+pub mod env;
 pub mod file;
 pub mod time;
 pub mod user;
+
+pub fn string_from_os(string: OsString) -> String {
+    match string.into_string() {
+        Ok(string) => string,
+        Err(string) => string.to_string_lossy().to_string(),
+    }
+}

@@ -65,7 +65,7 @@ This is just a fun project trying to reeimplement some of the gnu coreutils in R
 | printenv                                            | Shell utilities | Prints environment variables                                                                | Not started |
 | printf                                              | Shell utilities | Formats and prints data                                                                     | Not started |
 | ptx                                                 | Text utilities  | Produces a permuted index of file contents                                                  | Not started |
-| pwd                                                 | Shell utilities | Prints the current working directory                                                        | Not started |
+| pwd                                                 | Shell utilities | Prints the current working directory                                                        | Complete    |
 | readlink                                            | Shell utilities | Displays value of a symbolic link                                                           | Not started |
 | realpath                                            | File utilities  | Returns the resolved absolute or relative path for a file                                   | Not started |
 | rm                                                  | File utilities  | Removes (deletes) files, directories, device nodes and symbolic links                       | Not started |

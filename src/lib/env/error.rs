@@ -17,18 +17,18 @@
 use std::error;
 use std::fmt;
 
-pub type Result<T> = std::result::Result<T, TimeError>;
+pub type Result<T> = std::result::Result<T, EnvError>;
 
 #[derive(Debug, Clone)]
-pub struct TimeError {
+pub struct EnvError {
     pub code: usize,
     pub error_type: String,
     pub message: String,
 }
 
-impl error::Error for TimeError {}
+impl error::Error for EnvError {}
 
-impl fmt::Display for TimeError {
+impl fmt::Display for EnvError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
             f,
@@ -38,16 +38,16 @@ impl fmt::Display for TimeError {
     }
 }
 
-impl TimeError {
-    /// Returns a new TimeError object
+impl EnvError {
+    /// Returns a new EnvError object
     ///
     /// Code is used to create a readable error type therefore only implemented codes are supported
     ///
     /// # Codes
     /// - 1: Parse error
-    pub fn new(code: usize, message: &str) -> TimeError {
-        let code_str: [&str; 1] = ["ParseError"];
-        TimeError {
+    pub fn new(code: usize, message: &str) -> EnvError {
+        let code_str: [&str; 2] = ["CWDError", "ConvertPathError"];
+        EnvError {
             code: code,
             error_type: String::from(code_str[code - 1]),
             message: String::from(message),
